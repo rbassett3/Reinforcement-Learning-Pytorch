@@ -13,7 +13,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         Setup for the environment called when the experiment first starts.
         """
         self.env = gym.make("LunarLander-v2")
-        self.env.seed(0)
+        #self.env.seed(0)
 
     def env_start(self):
         """
@@ -34,6 +34,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         return self.reward_obs_term[1]
         
     def env_step(self, action):
+        import pdb
         """A step taken by the environment.
 
         Args:
@@ -45,7 +46,10 @@ class LunarLanderEnvironment(BaseEnvironment):
         """
 
         last_state = self.reward_obs_term[1]
-        current_state, reward, is_terminal, _ = self.env.step(action)
+        #pdb.set_trace()
+        #structure of this is nparray, float, boolean, boolean, empty dictionary
+        #I don't understand what the last two entries mean
+        current_state, reward, is_terminal, _, _ = self.env.step(action)
         
         self.reward_obs_term = (reward, current_state, is_terminal)
         

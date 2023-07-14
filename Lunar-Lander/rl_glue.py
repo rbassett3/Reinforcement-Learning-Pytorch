@@ -119,6 +119,7 @@ class RLGlue:
         return ro
 
     def rl_step(self):
+        #import pdb
         """Step taken by RLGlue, takes environment step and either step or
             end by agent.
 
@@ -126,7 +127,7 @@ class RLGlue:
             (float, state, action, Boolean): reward, last state observation,
                 last action, boolean indicating termination
         """
-
+        #pdb.set_trace()
         (reward, last_state, term) = self.environment.env_step(self.last_action)
 
         self.total_reward += reward;
